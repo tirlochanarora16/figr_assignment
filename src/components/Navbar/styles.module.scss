@@ -1,3 +1,57 @@
 .navbar {
-  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 2rem;
+    width: fit-content;
+
+    p {
+      font-size: 2rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__options {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__item {
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease-in;
+    p {
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #adadad;
+    }
+
+    &:hover {
+      border-bottom: 1px solid white;
+      p {
+        color: #fff;
+      }
+    }
+  }
+
+  &__btn {
+    color: #000;
+    background-color: #fff;
+    width: 116px;
+    border-radius: 1.12rem;
+    padding: 1.3rem;
+    border: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
 }
