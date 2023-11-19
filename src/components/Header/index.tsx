@@ -17,7 +17,7 @@ const Header = () => {
   useEffect(() => {
     window.addEventListener("scroll", scrollListener);
 
-    return window.removeEventListener("scroll", scrollListener);
+    return () => window.removeEventListener("scroll", scrollListener);
   }, []);
 
   return (
@@ -25,7 +25,7 @@ const Header = () => {
       className={styles.header}
       style={{
         transform: `perspective(1000px) rotate3d(1, 0, 0, -${
-          rotateX > 50 ? 50 : rotateX
+          rotateX > 30 ? 30 : rotateX
         }deg)`,
       }}
     >

@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
+import Text from "./components/Text";
 
 function App() {
   return (
@@ -8,21 +9,7 @@ function App() {
       <Navbar />
       <main>
         <Header />
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
+        <Text />
         <div>1</div>
         <div>1</div>
         <div>1</div>
