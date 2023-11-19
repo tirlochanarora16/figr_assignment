@@ -25,7 +25,7 @@ const Header = () => {
       className={styles.header}
       style={{
         transform: `perspective(1000px) rotate3d(1, 0, 0, -${
-          rotateX > 60 ? 60 : rotateX
+          rotateX > 50 ? 50 : rotateX
         }deg)`,
       }}
     >
