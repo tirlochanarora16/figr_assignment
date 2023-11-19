@@ -16,7 +16,7 @@ const Header = () => {
             ✨ $7.5M seed raised with Accel & Square Peg <FaArrowRight />
           </p>
           <h1>
-            Impactful stories. Made <br /> effortlessly
+            Impactful stories. <br /> Made <br /> effortlessly
           </h1>
           <h3>
             Gorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
