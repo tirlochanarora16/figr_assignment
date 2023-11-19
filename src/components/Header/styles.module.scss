@@ -1,0 +1,53 @@
+.header {
+  margin-top: 2rem;
+  padding: 2rem;
+
+  &__container {
+    display: flex;
+    justify-content: space-around;
+
+    border: 1px solid #1a1a1a;
+    padding: 2rem;
+
+    cursor: url("../../assets/cursor.svg"), auto;
+  }
+
+  &__left {
+    background-image: radial-gradient(
+        rgb(255, 255, 255, 0.1) 10%,
+        transparent 10%
+      ),
+      radial-gradient(rgb(255, 255, 255, 0.1) 10%, transparent 10%);
+    background-position: 0px 0px, 12px 12px;
+    background-size: 24px 24px;
+    background-color: rgb(0, 0, 0, 0.1);
+
+    flex: 1;
+
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #7053ff;
+      width: 260px;
+      padding: 0.5rem;
+      border-radius: 1rem;
+      transition: width 0.3s ease-in-out;
+      font-size: 1.2rem;
+
+      &:hover {
+        width: 265px;
+        cursor: pointer;
+        cursor: url("../../assets/cursor.svg"), auto;
+      }
+    }
+  }
+
+  &__right {
+    flex: 1;
+    background-color: rgb(13, 13, 13);
+    justify-self: flex-end;
+
+    padding: 2rem;
+  }
+}
