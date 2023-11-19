@@ -15,6 +15,13 @@ const Header = () => {
           <p>
             ✨ $7.5M seed raised with Accel & Square Peg <FaArrowRight />
           </p>
+          <h1>
+            Impactful stories. Made <br /> effortlessly
+          </h1>
+          <h3>
+            Gorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+            vulputate libero et velit interdum, ac aliquet odio mattis.
+          </h3>
         </div>
         <div className={styles.header__right}>
           <div className={styles["header__right--img"]}>

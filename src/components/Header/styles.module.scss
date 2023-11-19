@@ -10,6 +10,8 @@
     padding: 2rem;
 
     cursor: url("../../assets/cursor.svg"), auto;
+    max-width: 1040px;
+    margin: auto;
   }
 
   &__left {
@@ -24,27 +26,45 @@
 
     flex: 1;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+
     p {
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: #7053ff;
-      width: 260px;
+      width: 315px;
       padding: 0.5rem;
       border-radius: 1rem;
       transition: width 0.3s ease-in-out;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
 
       &:hover {
-        width: 265px;
+        width: 325px;
         cursor: pointer;
         cursor: url("../../assets/cursor.svg"), auto;
       }
     }
+
+    h1 {
+      font-size: 6.1rem;
+      font-weight: 600;
+      line-height: 66.743px;
+    }
+
+    h3 {
+      color: #79787b;
+      font-weight: 600;
+      font-size: 1.6rem;
+      margin-right: 1rem;
+    }
   }
 
   &__right {
-    flex: 1;
+    flex: 1.25;
     background-color: rgb(13, 13, 13);
     justify-self: flex-end;
 
