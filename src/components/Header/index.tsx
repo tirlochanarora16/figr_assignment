@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 // @ts-ignore
@@ -8,8 +8,27 @@ import HeaderImg from "../../assets/header.svg";
 import styles from "./styles.module.scss";
 
 const Header = () => {
+  const [rotateX, setRotateX] = useState<number>(0);
+
+  const scrollListener = () => {
+    setRotateX(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollListener);
+
+    return window.removeEventListener("scroll", scrollListener);
+  }, []);
+
   return (
-    <header className={styles.header}>
+    <header
+      className={styles.header}
+      style={{
+        transform: `perspective(1000px) rotate3d(1, 0, 0, -${
+          rotateX > 60 ? 60 : rotateX
+        }deg)`,
+      }}
+    >
       <div className={styles.header__container}>
         <div className={styles.header__left}>
           <p>
