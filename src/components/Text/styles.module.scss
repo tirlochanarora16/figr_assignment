@@ -1,15 +1,16 @@
 .text {
   max-width: 1040px;
-  margin: 20rem auto;
+  margin: auto;
+  height: 200vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 20rem;
+
+  position: sticky;
+  top: 0;
   p {
     font-size: 5.6rem;
     font-weight: 600;
     line-height: 6.2rem;
-    color: #202020;
   }
-}
-
-.visible {
-  color: #fff; /* Set your desired color */
-  transition: color 0.3s ease; /* Add a smooth transition effect */
 }

@@ -7,29 +7,68 @@ const Text = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Check if the target element is in the viewport
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.5 } // Adjust the threshold as needed
-    );
+    const parallaxText = ref.current;
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (parallaxText) {
+      // Helper function to interpolate between two colors
+      const interpolateColor = (colorStart: any, colorEnd: any, ratio: any) => {
+        const start = colorStart
+          .match(/\w{2}/g)
+          .map((x: any) => parseInt(x, 16));
+        const end = colorEnd.match(/\w{2}/g).map((x: any) => parseInt(x, 16));
+
+        const result = start.map((channel: any, index: any) => {
+          return Math.round(channel + ratio * (end[index] - channel));
+        });
+
+        return `#${result
+          .map((x: any) => x.toString(16).padStart(2, "0"))
+          .join("")}`;
+      };
+
+      const handleScroll = () => {
+        const textContent = parallaxText.innerText;
+        const letterCount = textContent.length;
+        const scrollPercentage =
+          (window.scrollY /
+            (document.documentElement.scrollHeight - window.innerHeight)) *
+          100;
+
+        // Calculate the color change for each letter based on scroll percentage
+        const colors = Array.from({ length: letterCount }, (_, index) => {
+          const colorChange = Math.max(
+            0,
+            Math.min(100, scrollPercentage - (index / letterCount) * 100)
+          );
+          const interpolatedColor = interpolateColor(
+            "#202020",
+            "#ffffff",
+            colorChange / 100
+          );
+          return interpolatedColor;
+        });
+
+        // Apply color change to each letter
+        const coloredText = textContent
+          .split("")
+          .map(
+            (letter, index) =>
+              `<span style="color: ${colors[index]}">${letter}</span>`
+          )
+          .join("");
+
+        parallaxText.innerHTML = coloredText;
+      };
+
+      // Add scroll event listener on mount
+      document.addEventListener("scroll", handleScroll);
+
+      // Remove scroll event listener on unmount
+      return () => {
+        document.removeEventListener("scroll", handleScroll);
+      };
     }
-
-    // Cleanup observer on component unmount
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
   }, []);
-
-  console.log("isVisible", isVisible);
 
   const text = `Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate
     libero et velit interdum, ac aliquet odio mattis. Class aptent taciti
@@ -41,11 +80,7 @@ const Text = () => {
     <div className={styles.text}>
       {/* @ts-ignore */}
 
-      <p ref={ref} className={isVisible ? styles.visible : ""}>
-        {text.split(" ").map((word, index) => (
-          <span key={index}>{word} </span>
-        ))}
-      </p>
+      <p ref={ref}>{text}</p>
     </div>
   );
 };
