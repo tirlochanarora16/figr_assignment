@@ -4,8 +4,6 @@ import styles from "./styles.module.scss";
 const Text = () => {
   const ref = useRef<HTMLParagraphElement>(null);
 
-  const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     const parallaxText = ref.current;
 
